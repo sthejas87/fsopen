@@ -30,12 +30,18 @@ const App = () => {
       <Button handleClick={increaseNeutral} text={"neutral"} />
       <Button handleClick={increaseBad} text={"bad"} />
       <Header title={"statistics"} />
-      <Stat title={"good"} vari={good} />
-      <Stat title={"neutral"} vari={neutral} />
-      <Stat title={"bad"} vari={bad} />
-      <Stat title={"all"} vari={all} />
-      <Stat title={"average"} vari={average} />
-      <Stat title={"positive"} vari={positive + "%"} />
+      {all > 0 ? (
+        <>
+          <Stat title={"good"} vari={good} />
+          <Stat title={"neutral"} vari={neutral} />
+          <Stat title={"bad"} vari={bad} />
+          <Stat title={"all"} vari={all} />
+          <Stat title={"average"} vari={average} />
+          <Stat title={"positive"} vari={positive + "%"} />
+        </>
+      ) : (
+        <p>No feedback given</p>
+      )}
     </div>
   );
 };
