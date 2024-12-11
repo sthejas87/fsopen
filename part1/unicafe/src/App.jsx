@@ -13,14 +13,16 @@ const Stat = ({ title, vari }) => (
 );
 
 const App = () => {
-  // save clicks of each button to its own state
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   const increaseGood = () => setGood(good + 1);
   const increaseNeutral = () => setNeutral(neutral + 1);
   const increaseBad = () => setBad(bad + 1);
-
+  const all = good + neutral + bad;
+  const score = good - bad;
+  const average = all === 0 ? 0 : score / all;
+  const positive = all === 0 ? 0 : (good / all) * 100;
   return (
     <div>
       <Header title={"give feedback"} />
@@ -31,6 +33,9 @@ const App = () => {
       <Stat title={"good"} vari={good} />
       <Stat title={"neutral"} vari={neutral} />
       <Stat title={"bad"} vari={bad} />
+      <Stat title={"all"} vari={all} />
+      <Stat title={"average"} vari={average} />
+      <Stat title={"positive"} vari={positive + "%"} />
     </div>
   );
 };
