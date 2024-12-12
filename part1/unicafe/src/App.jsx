@@ -6,9 +6,9 @@ const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>{text}</button>
 );
 
-const Stat = ({ title, vari }) => (
+const StatisticLine = ({ text, value }) => (
   <p>
-    {title} {vari}
+    {text} {value}
   </p>
 );
 
@@ -32,12 +32,12 @@ const App = () => {
       <Header title={"statistics"} />
       {all > 0 ? (
         <>
-          <Stat title={"good"} vari={good} />
-          <Stat title={"neutral"} vari={neutral} />
-          <Stat title={"bad"} vari={bad} />
-          <Stat title={"all"} vari={all} />
-          <Stat title={"average"} vari={average} />
-          <Stat title={"positive"} vari={positive + "%"} />
+          <StatisticLine text={"good"} value={good} />
+          <StatisticLine text={"neutral"} value={neutral} />
+          <StatisticLine text={"bad"} value={bad} />
+          <StatisticLine text={"all"} value={all} />
+          <StatisticLine text={"average"} value={average} />
+          <StatisticLine text={"positive"} value={positive + "%"} />
         </>
       ) : (
         <p>No feedback given</p>
